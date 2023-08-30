@@ -1,0 +1,10 @@
+#lang scheme
+(define (square x)
+  (* x x))
+(define (sum-larger-squares x y z)
+  (if (or (> x y) (> x z))
+      (if (> y z)
+          (+ (square x) (square y))
+          (+ (square x) (square z)))
+      (+ (square y) (square z))))
+(sum-larger-squares  3 2 1)
