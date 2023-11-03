@@ -1,0 +1,22 @@
+#lang scheme
+
+(define (make-rat n d)
+  (let ((g (gcd n d)))
+    (if (or (and (> n 0) (> d 0)) (and (< n 0) (> d 0)))
+        (cons (/ n g) (/ d g))
+        (cons (/ (- n) g) (/ (- d) g)))))
+
+
+(define (numer x) (car x))
+
+(define (denom x) (cdr x))
+
+(define (print-rat x)
+  (newline)
+  (display (numer x))
+  (display "/")
+  (display (denom x)))
+
+(define one-half (make-rat 1 -2))
+
+(print-rat one-half)
